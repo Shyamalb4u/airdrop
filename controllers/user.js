@@ -19,6 +19,7 @@ exports.getall = (req, res, next) => {
 };
 exports.getUser = (req, res, next) => {
   const uid = req.params.id;
+  console.log(uid);
   new sql.Request()
     .input("name", uid)
     .execute("get_user")
