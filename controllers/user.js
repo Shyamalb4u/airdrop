@@ -17,6 +17,18 @@ exports.getall = (req, res, next) => {
       throw err;
     });
 };
+exports.getUser = (req, res, next) => {
+  const uid = req.params.id;
+  new sql.Request()
+    .input("name", uid)
+    .execute("get_user")
+    .then((result) => {
+      res.status(200).json({ data: result.recordset });
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
 exports.signup = async (req, res, next) => {
   const uid = req.body.uid;
   const fname = req.body.fname;
