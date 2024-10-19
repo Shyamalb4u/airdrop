@@ -2,6 +2,7 @@ const express = require("express");
 const userController = require("../controllers/user");
 
 const router = express.Router();
+router.post("/addSocial/:id/:typ", userController.handleSocial);
 router.post("/touch/:id", userController.handleTouch);
 router.get("/getUser/:id", userController.getUser);
 router.get("/getall", userController.getall);

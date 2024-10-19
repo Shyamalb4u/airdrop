@@ -68,3 +68,17 @@ exports.handleTouch = async (req, res, next) => {
     throw err;
   }
 };
+exports.handleSocial = async (req, res, next) => {
+  const uid = req.params.id;
+  const typ = req.params.typ;
+  try {
+    const result = await new sql.Request()
+      .input("_id", uid)
+      .input("media", typ)
+      .execute("add_socials");
+    console.log(result.recordset);
+    res.status(200).json({ data: result.recordset });
+  } catch (err) {
+    throw err;
+  }
+};
