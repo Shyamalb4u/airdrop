@@ -17,6 +17,16 @@ exports.getall = (req, res, next) => {
       throw err;
     });
 };
+exports.getLeaders = (req, res, next) => {
+  new sql.Request()
+    .execute("getLeaders")
+    .then((result) => {
+      res.status(200).json({ data: result.recordset });
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
 exports.getUser = (req, res, next) => {
   const uid = req.params.id;
   console.log(uid);

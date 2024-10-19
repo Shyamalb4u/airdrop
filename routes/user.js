@@ -5,6 +5,7 @@ const router = express.Router();
 router.post("/touch/:id", userController.handleTouch);
 router.get("/getUser/:id", userController.getUser);
 router.get("/getall", userController.getall);
+router.get("/getLeaders", userController.getLeaders);
 router.post("/signup", userController.signup);
 
 module.exports = router;
