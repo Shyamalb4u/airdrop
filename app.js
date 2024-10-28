@@ -15,9 +15,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
 });
-app.get("/", (req, res, next) => {
-  res.send("Welcome");
-});
+
 app.use("/api", userRouter);
 
 app.use((error, req, res, next) => {
