@@ -68,6 +68,20 @@ exports.handleTouch = async (req, res, next) => {
     throw err;
   }
 };
+exports.handleTouchTap = async (req, res, next) => {
+  const uid = req.params.id;
+  const score = req.params.score;
+  try {
+    const result = await new sql.Request()
+      .input("App", uid)
+      .input("score", score)
+      .execute("touchHandleTap");
+    console.log(result.recordset);
+    res.status(200).json({ data: result.recordset });
+  } catch (err) {
+    throw err;
+  }
+};
 exports.handleSocial = async (req, res, next) => {
   const uid = req.params.id;
   const typ = req.params.typ;

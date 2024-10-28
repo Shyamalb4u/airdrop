@@ -22,6 +22,7 @@ sql.connect(dbconfig, (err) => {
   if (err) {
     throw err;
   }
+
   app.listen(PORT);
   console.log(`app is running on port ${PORT}`);
 });

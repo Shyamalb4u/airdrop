@@ -8,5 +8,6 @@ router.get("/getUser/:id", userController.getUser);
 router.get("/getall", userController.getall);
 router.get("/getLeaders", userController.getLeaders);
 router.post("/signup", userController.signup);
+router.post("/touchtap/:id/:score", userController.handleTouchTap);
 
 module.exports = router;
