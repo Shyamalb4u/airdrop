@@ -96,3 +96,26 @@ exports.handleSocial = async (req, res, next) => {
     throw err;
   }
 };
+
+exports.ibsPrice = async (req, res, next) => {
+  try {
+    let url =
+      "https://api.coingecko.com/api/v3/coins/ibs-2?x_cg_demo_api_key=CG-UgAd45a7HzxK582brYwFS6gN";
+    fetch(url)
+      .then((result) => {
+        return result.json();
+      })
+      .then((reData) => {
+        res.status(200).json({
+          inr: reData.market_data.current_price.inr,
+          usd: reData.market_data.current_price.usd,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        throw err;
+      });
+  } catch (e) {
+    throw err;
+  }
+};
